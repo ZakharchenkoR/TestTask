@@ -1,0 +1,76 @@
+﻿<Window x:Class="TasksApplication.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:settings="clr-namespace:TasksApplication.Settings"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:system="clr-namespace:System;assembly=mscorlib"
+        xmlns:styleAlias="clr-namespace:TasksApplication.Model"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="550" Width="1000" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <ObjectDataProvider x:Key="DataFromEnum" MethodName="GetValues"
+                            ObjectType="{x:Type system:Enum}">
+            <ObjectDataProvider.MethodParameters>
+                <x:Type TypeName="styleAlias:Condition"/>
+            </ObjectDataProvider.MethodParameters>
+        </ObjectDataProvider>
+    </Window.Resources>
+    <Window.DataContext>
+        <settings:MainViewModelLocator/>
+    </Window.DataContext>
+    <Grid DataContext="{Binding Path=ViewModel}">
+      <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="200"/>
+          <ColumnDefinition/>
+      </Grid.ColumnDefinitions>
+<Grid Grid.Column="0">
+    <Grid.RowDefinitions>
+    <RowDefinition/>
+    <RowDefinition/>
+    </Grid.RowDefinitions>
+    <StackPanel Orientation="Vertical">
+            <Label Content="Title" Margin="20 0 0 0"/>
+            <TextBox Text="{Binding Path=TitleToAdd}"/>
+            <Label Content="Start Task" Margin="20 0 0 0"/>
+            <xctk:DateTimePicker Value="{Binding Path=StartDateToAdd}"/>
+            <Label Content="End Task" Margin="20 0 0 0"/>
+            <xctk:DateTimePicker Value="{Binding Path=EndDateToAdd}"/>
+            <Label Content="Condition" Margin="20 0 0 0"/>
+            <ComboBox Margin="0 0 0 5" ItemsSource="{Binding Source={StaticResource DataFromEnum}}" SelectedItem="{Binding Path=ConditionToAdd}"/>
+            <Button Content="Add" Command="{Binding Path=AddCommand}"/>
+        </StackPanel>
+    <StackPanel Grid.Row="1" Orientation="Vertical">
+        <Label Content="Filtering" FontWeight="Bold" VerticalContentAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label Content="Title" Margin="20 0 0 0"/>
+        <TextBox Text="{Binding Path=TitleToFiltering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Start Task" Margin="20 0 0 0"/>
+        <xctk:DateTimePicker Value="{Binding Path=StartDateToFiltering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="End Task" Margin="20 0 0 0"/>
+                <xctk:DateTimePicker Value="{Binding Path=EndDateToFiltering, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Content="Condition" Margin="20 0 0 0"/>
+        <ComboBox Margin="0 0 0 5" ItemsSource="{Binding Source={StaticResource DataFromEnum}}" SelectedItem="{Binding Path=ConditionToFiltering}"/>
+                <Button Content="Clear filters" Command="{Binding Path=ClearFiltersCommand}"/>
+    </StackPanel>
+        </Grid>
+        <ListBox Grid.Column="1" ItemsSource="{Binding Path=Tasks}"
+                         ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Margin="5">
+                        <TextBlock Text="{Binding Title}" FontSize="20"/>
+                        <TextBlock Text="{Binding StartData}" FontSize="15"/>
+                        <TextBlock Text="{Binding EndData}" FontSize="12"/>
+                        <TextBlock Text="{Binding Condition}" FontSize="12"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+            <ListBox.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <WrapPanel></WrapPanel>
+                </ItemsPanelTemplate>
+            </ListBox.ItemsPanel>
+        </ListBox>
+    </Grid>
+</Window>

@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29123.88
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TasksApplication", "TasksApplication\TasksApplication.csproj", "{74B556C4-94FB-42DD-AF19-57A59833D275}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{79683FEB-ED0C-484F-9DC0-29E536FF7050}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{D36B250F-74C1-4714-9ECD-87DE64A1F6E4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{74B556C4-94FB-42DD-AF19-57A59833D275}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{74B556C4-94FB-42DD-AF19-57A59833D275}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{74B556C4-94FB-42DD-AF19-57A59833D275}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{74B556C4-94FB-42DD-AF19-57A59833D275}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79683FEB-ED0C-484F-9DC0-29E536FF7050}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79683FEB-ED0C-484F-9DC0-29E536FF7050}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79683FEB-ED0C-484F-9DC0-29E536FF7050}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79683FEB-ED0C-484F-9DC0-29E536FF7050}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D36B250F-74C1-4714-9ECD-87DE64A1F6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D36B250F-74C1-4714-9ECD-87DE64A1F6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D36B250F-74C1-4714-9ECD-87DE64A1F6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D36B250F-74C1-4714-9ECD-87DE64A1F6E4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CBC857AE-8A23-4461-835D-0E43C1473DB7}
+	EndGlobalSection
+EndGlobal
